@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Interactive Webpage</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+      transition: background-color 0.5s;
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 id="main-heading">Hello, World!</h1>
+
+  <form action="/greet" method="POST">
+    <input type="text" id="nameInput" name="name" placeholder="Type your name..." />
+    <br>
+    <button type="submit">Greet Me</button>
+  </form>
+
+  <button onclick="changeBackgroundColor()">Change Background</button>
+
+  <script>
+    const heading = document.getElementById("main-heading");
+    const input = document.getElementById("nameInput");
+
+    input.addEventListener("input", () => {
+      heading.textContent = `Hello, ${input.value || 'World'}!`;
+    });
+
+    function changeBackgroundColor() {
+      const colors = ["#f4a261", "#2a9d8f", "#e76f51", "#264653", "#e9c46a"];
+      document.body.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    }
+  </script>
+
+</body>
+</html>
